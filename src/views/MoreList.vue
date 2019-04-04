@@ -3,7 +3,7 @@
     <div class="wrapper">
       <h3>{{ this.$route.params.title }}</h3>
       <VuePullRefresh :on-refresh="onRefresh">
-        <div tag="div" class="info url log" v-for="(item,index) in moreListData" :key="index">
+        <router-link :to="{name: 'MusicPlay', params: {songid: item.song_id}}" tag="div" class="info url log" v-for="(item,index) in moreListData" :key="index">
           <div class="poster">
             <img :src="item.pic_big" :alt="item.title">
           </div>
@@ -11,7 +11,7 @@
             <div class="title">{{ item.title }}</div>
             <div class="author">{{ item.artist_name }}</div>
           </div>
-        </div>
+        </router-link>
       </VuePullRefresh>
     </div>
   </div>
