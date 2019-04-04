@@ -11,9 +11,9 @@ export default {
     return {
     }
   },
-  components: [
+  components: {
     TodyRecommend
-  ]
+  }
 }
 </script>
 
