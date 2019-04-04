@@ -1,0 +1,105 @@
+<template>
+  <div class="board panels">
+    <div class="panel hotsongs on">
+      <ul class="list">
+        <li class="song url" v-for="(item,index) in currentData" :key="index">
+          <div class="poster">
+            <img :src="item.pic_big" :alt="item.title">
+          </div>
+          <div class="info">
+            <div class="name">
+                {{ item.title }}
+            </div>
+            <div class="author">{{ item.artist_name }}</div>
+          </div>
+        </li>
+      </ul>
+      <div class="more-songs url">
+          查看该榜单&gt;
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    url: {
+      type: String,
+      default: ""
+    }
+  },
+  data () {
+    return {
+      currentData: []
+    }
+  },
+  mounted () {
+    const httpUrl = this.HOST + this.url
+    this.$axios.get(httpUrl)
+      .then(res => {
+        // console.log(res.data)
+        this.currentData = res.data.song_list
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  },
+}
+</script>
+
+<style lang="stylus" scoped>
+.board
+  display flex
+  height 400px
+  .panel
+    border-top 1px solid #eee
+    position relative
+    top -1px
+    display block
+    background: #fff
+    .list
+      padding 10px
+      padding-top 0
+      li
+        height 60px
+        border-bottom 1px solid #eee
+        padding-left 0
+        display flex
+        padding-top 10px
+        .poster
+          position relative
+          width 45px
+          margin-right 8px
+          img
+            width 47px
+            box-sizing border-box
+            border 1px solid #eee
+        .info
+          flex 1
+          overflow hidden
+          text-overflow ellipsis
+          white-space nowrap
+          .name
+            width 280px
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
+            font-size 16px
+            color #333
+            margin-top 10px
+          .author
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
+            font-size 12px
+            color #999
+            margin-top 2px
+    .more-songs
+      color #999
+      margin-top 9px
+      font-size 12px
+      text-align center
+      height 32px
+      line-height 32px
+</style>

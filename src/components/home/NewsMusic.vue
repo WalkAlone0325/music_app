@@ -1,18 +1,19 @@
 <template>
   <div class="mod-albums">
     <div class="hd log url">
-      <h2>{{title}}</h2>
-      <router-link :to="{name: 'MoreList', params: {musictype: this.type, title: title}}" tag="div" >
-        更多
-      </router-link>
+        <h2>新歌速递</h2>
+        <div>
+          更多
+        </div>
     </div>
     <div class="container">
         <div class="gallery">
             <div class="scroller">
-                <div tag="div" class="card url" v-for="(item,index) in todayRecommend" :key="index">
+                  <div tag="div" class="card url" v-for="(item,index) in newsMusic" :key="index">
                     <div class="album">
                         <img :src="item.pic_big" :alt="item.title">
                         <div class="name">{{ item.title }}</div>
+                        <div class="author">{{ item.artist_name }}</div>
                     </div>
                 </div>
             </div>
@@ -23,38 +24,28 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: "今日推荐"
-    },
-    type: {
-      type: String,
-      default: "1"
+  data(){
+    return{
+      newsMusic: []
     }
   },
-  data () {
-    return {
-      todayRecommend: []
-    }
-  },
-  mounted () {
-    var url = this.HOST + `v1/restserver/ting?method=baidu.ting.billboard.billList&type=${this.type}&size=6&offset=0`
-    this.$axios.get(url).then(res => {
-      this.todayRecommend = res.data.song_list;
-      // console.log(res.data.song_list);
-    }).catch(error => {
+  mounted(){
+    var url = this.HOST + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type=2&size=3&offset=0";
+    this.$axios.get(url)
+    .then(res => {
+      this.newsMusic = res.data.song_list
+    })
+    .catch(error => {
       console.log(error);
-    });
-  },
-};
+    })
+  }
+}
 </script>
 
 <style lang="stylus" scoped>
 .mod-albums
   background-color #fff
-  box-sizing border-box
-  padding 5px 17px
+  padding 10px 17px
   margin-top 5px
   .hd
     display flex
@@ -96,5 +87,11 @@ export default {
             line-height 14px
             max-height 28px
             margin-bottom 2px
-
+          .author
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
+            color #999
+            font-size 12px
+            line-height 12px
 </style>
