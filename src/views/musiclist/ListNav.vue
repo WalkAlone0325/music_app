@@ -7,11 +7,11 @@
     <ul>
       <li>
         <router-link class="nav" to="/home/hot">热歌榜</router-link>
-        <span class="gap-line"> </span>
+        <span class="gap-line">|</span>
       </li>
       <li>
         <router-link class="nav" to="/home/news">新歌榜</router-link>
-        <span class="gap-line"> </span>
+        <span class="gap-line">|</span>
       </li>
       <li>
         <router-link class="nav" to="/home/king">King榜</router-link>
@@ -34,8 +34,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .music-nav
-  background-color #fff
+  background-color $color-highlight-background
   padding 10px 17px
   .hd
     margin 14px 0 18px 0
@@ -52,23 +53,24 @@ export default {
   ul
     display flex
     li
-      padding 18px 0 12px 0
+      padding 16px 0 20px 0
       font-size 16px
       flex 1
       text-align center
-      color #999
+      color $color-text
       position relative
       z-index 2
       .nav
         display block
         &.router-link-active
-          color #299DE7 !important
+          color $color-theme !important
       .gap-line
         position absolute
         right 0
         top 20px
         height 18px
         width 1px
-        border-left 1px solid #eee
+        color #999
+        // border-left 1px solid #eee
 
 </style>

@@ -36,13 +36,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .art-title
+  background $color-highlight-background
   .artist-header
     width 100%
     height 160px
+    // padding 2px 0
+    // margin 2px auto
     position relative
     overflow hidden
-    box-sizing border-box
     .header-bg
       position absolute
       top 0

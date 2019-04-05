@@ -41,15 +41,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .art-list
   padding 0 17px
+  background $color-highlight-background
   .list
     .song
       height 50px
       line-height 50px
-      border-bottom 1px solid #999
+      border-bottom 1px solid $color-border
       .left
         font-size 18px
         padding 0 17px
+        &:hover
+          color $color-text-ll
 
 </style>

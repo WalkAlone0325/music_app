@@ -7,7 +7,7 @@
             <img :src="item.pic_big" :alt="item.title">
           </div>
           <div class="info">
-            <div class="name">
+            <div class="name ellipsis">
                 {{ item.title }}
             </div>
             <div class="author">{{ item.artist_name }}</div>
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .board
   display flex
   height 400px
@@ -57,7 +58,7 @@ export default {
     position relative
     top -1px
     display block
-    background: #fff
+    background: $color-highlight-background
     .list
       padding 10px
       padding-top 0
@@ -82,21 +83,18 @@ export default {
           white-space nowrap
           .name
             width 280px
-            overflow hidden
-            text-overflow ellipsis
-            white-space nowrap
             font-size 16px
-            color #333
+            color $color-theme
             margin-top 10px
           .author
             overflow hidden
             text-overflow ellipsis
             white-space nowrap
             font-size 12px
-            color #999
-            margin-top 2px
+            color $color-text
+            margin-top 10px
     .more-songs
-      color #999
+      color $color-text
       margin-top 9px
       font-size 12px
       text-align center

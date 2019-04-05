@@ -42,17 +42,19 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" scoped>\
+@import "../../public/css/variable.styl"
 .artists
   padding 0 17px
-  background #fff
+  background $color-highlight-background
   .list
     li
-      padding-left 0
+      padding-left 10px
       min-height 70px
       display flex
       align-items center
-      border-bottom 1px solid #eee
+      margin-top 1px
+      border-bottom 1px solid $color-text
       .pic
         margin-right 15px
         img

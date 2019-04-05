@@ -49,11 +49,13 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="stylus" scoped>
+@import "../../public/css/variable.styl"
+
 .listcate {
   padding: 0 17px 20px;
   font-size: 16px;
-  background: #fff;
+  background: $color-highlight-background;
 }
 
 .cate-item {
@@ -67,7 +69,7 @@ export default {
 
 .cate-post {
   position: relative;
-  color: #fff;
+  color: $color-text;
   font-size: 18px;
   height: 96px;
   width: 96px;
@@ -90,7 +92,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #666;
+  color: $color-text-ll;
   font: 15px 700;
 }
 
@@ -102,7 +104,7 @@ export default {
 }
 .cate-item .cate-hot li .col-title {
   line-height: 17px;
-  color: #343434;
+  color: $color-theme-d;
   text-indent: 12px;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -41,17 +41,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .banner-img img {
   width: 100%;
 }
 
 .list {
   padding: 10px 17px;
-  background: #fff;
+  background: $color-highlight-background;
 }
 
 .list li {
-  margin: 10px 5px;
+  margin: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #999;
 }
@@ -62,6 +63,7 @@ export default {
 
 .author {
   font-size: 14px;
-  color: #999;
+  margin-top: 5px;
+  color: $color-text;
 }
 </style>

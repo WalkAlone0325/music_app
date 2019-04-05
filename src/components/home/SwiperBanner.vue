@@ -40,7 +40,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .banner
+  background-color $color-highlight-background
+  margin 1px 0
   padding 10px
   img
     width 100%

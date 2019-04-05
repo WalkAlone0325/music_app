@@ -43,10 +43,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../../public/css/variable.styl"
 .mod-albums
-  background-color #fff
+  background-color $color-highlight-background
   padding 10px 17px
-  margin-top 5px
+  margin-top 1px
   .hd
     display flex
     margin 14px 0 18px 0

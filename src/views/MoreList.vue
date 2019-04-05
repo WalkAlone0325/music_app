@@ -69,11 +69,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../../public/css/variable.styl"
 .wrapper
   padding-top 13px
   text-align center
   margin-bottom 10px
-  background #fff
+  background $color-highlight-background
   clear both
   overflow hidden
   h3
